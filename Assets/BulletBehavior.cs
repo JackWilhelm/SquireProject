@@ -27,13 +27,18 @@ public class BulletBehavior : MonoBehaviour
         _lifeTimer -= Time.deltaTime;
 
         if (_lifeTimer <= 0f) {
-            bulletPool.ReturnBullet(gameObject);
+            resetBullet();
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Bot")) {
-            bulletPool.ReturnBullet(gameObject);
+            resetBullet();
         }
+    }
+
+    private void resetBullet() {
+        bulletPool.ReturnBullet(gameObject);
+        _lifeTimer = lifeTime;
     }
 }
