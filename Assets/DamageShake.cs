@@ -9,6 +9,13 @@ public class TakingDamage : MonoBehaviour
     public CircleCollider2D botCollider;
 
     private Vector2 originalPosition;
+
+    private SpriteRenderer spriteRenderer;
+
+    void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
     
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Bullet")) {
@@ -26,8 +33,11 @@ public class TakingDamage : MonoBehaviour
             transform.localPosition = originalPosition + new Vector2(offsetX, 0f);
 
             elapsedTime += Time.deltaTime;
+            spriteRenderer.color = Color.red;
             yield return null;
         }
+
+        spriteRenderer.color = Color.blue;
 
         transform.localPosition = originalPosition;
     }
