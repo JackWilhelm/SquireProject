@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D playerRigidBody;
-    float moveSpeed = 5f;
+    public float moveSpeed = 5f;
     public PolygonCollider2D groundCollider;
     public CircleCollider2D maxDistanceFromBot;
     // Start is called before the first frame update

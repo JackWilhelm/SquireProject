@@ -32,7 +32,7 @@ public class BulletBehavior : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag("Bot")) {
+        if (other.CompareTag("Bot") || other.CompareTag("Player")) {
             resetBullet();
         }
     }
