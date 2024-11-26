@@ -604,6 +604,10 @@ MonoBehaviour:
   groundCollider: {fileID: 926090558}
   maxDistanceFromBot: {fileID: 1248789121}
   footGrip: 100
+  dashCooldown: 1
+  dashSpeed: 20
+  dashDuration: 0.2
+  dashMethodMouse: 0
 --- !u!212 &1191812500
 SpriteRenderer:
   m_ObjectHideFlags: 0
