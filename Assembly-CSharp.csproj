@@ -67,6 +67,7 @@
     <Compile Include="Assets\SpawnLaunchers.cs" />
     <Compile Include="Assets\BulletLauncher.cs" />
     <Compile Include="Assets\BulletPool.cs" />
+    <Compile Include="Assets\TetherIndicator.cs" />
     <Compile Include="Assets\AimAtBot.cs" />
     <Compile Include="Assets\BulletBehavior.cs" />
     <Compile Include="Assets\CreatePolygonPoints.cs" />

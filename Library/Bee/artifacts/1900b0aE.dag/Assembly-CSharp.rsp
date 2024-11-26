@@ -381,6 +381,7 @@
 "Assets/DamageShake.cs"
 "Assets/PlayerMovement.cs"
 "Assets/SpawnLaunchers.cs"
+"Assets/TetherIndicator.cs"
 -langversion:9.0
 /deterministic
 /optimize+
