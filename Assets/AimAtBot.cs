@@ -8,6 +8,14 @@ public class AimAtBot : MonoBehaviour
     public float rotationSpeed = 5f;
     public float rotationOffset = -90f;
 
+    void Start() {
+        GameObject targetObject = GameObject.Find("Bot");
+
+        if (targetObject != null) {
+            target = targetObject.GetComponent<Transform>();
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {

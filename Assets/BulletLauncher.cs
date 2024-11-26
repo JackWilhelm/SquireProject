@@ -13,6 +13,22 @@ public class BulletLaunch : MonoBehaviour
 
     private float _fireCooldown;
 
+    void Start()
+    {
+        _fireCooldown = fireRate;
+        GameObject bulletManager = GameObject.Find("BulletManager");
+
+        if (bulletManager != null)
+        {
+            bulletPool = bulletManager.GetComponent<BulletPool>();
+            Debug.Log("BulletPool successfully assigned to BulletLauncher!");
+        }
+        else
+        {
+            Debug.LogError("BulletManager not found in the Scene! BulletLauncher cannot function.");
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
