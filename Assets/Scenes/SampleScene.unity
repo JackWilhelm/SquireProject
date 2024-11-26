@@ -603,6 +603,7 @@ MonoBehaviour:
   moveSpeed: 7.5
   groundCollider: {fileID: 926090558}
   maxDistanceFromBot: {fileID: 1248789121}
+  footGrip: 100
 --- !u!212 &1191812500
 SpriteRenderer:
   m_ObjectHideFlags: 0
