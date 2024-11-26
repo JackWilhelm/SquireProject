@@ -6,16 +6,19 @@ public class BulletLaunch : MonoBehaviour
 {
     public BulletPool bulletPool;
     public Transform firePoint;
-    public float fireRate = 0.2f;
+    public float fireRate = 10f;
+    public float fireRateVarianceRange = 2f;
+
+    public float fireRateVarianceBackendLimiter = 0.5f;
 
     private float _fireCooldown;
 
     // Update is called once per frame
     void Update()
     {
-        _fireCooldown -= Time.deltaTime;
+        _fireCooldown -= Time.deltaTime * Random.Range(-fireRateVarianceRange * fireRateVarianceBackendLimiter, fireRateVarianceRange);
 
-        if (Input.GetButtonDown("Fire1") && _fireCooldown <= 0f) {
+        if (_fireCooldown <= 0f) {
             Shoot();
             _fireCooldown = fireRate;
         }
