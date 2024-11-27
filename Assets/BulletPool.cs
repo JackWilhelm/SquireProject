@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class BulletPool : MonoBehaviour
@@ -8,6 +9,8 @@ public class BulletPool : MonoBehaviour
     public int poolSize = 20;
 
     private GameObject[] bulletPool;
+
+    public static event Action<GameObject> AlertBot;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,7 @@ public class BulletPool : MonoBehaviour
         foreach(GameObject bullet in bulletPool) {
             if (!bullet.activeInHierarchy) {
                 bullet.SetActive(true);
+                AlertBot?.Invoke(bullet);
                 return bullet;
             }
         }
