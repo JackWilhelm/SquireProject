@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public CircleCollider2D maxDistanceFromBot;
     public float footGrip = 100;
     public float dashCooldown = 2;
-    private float lastDashTime = -100f;
+    public float lastDashTime {get; private set;} = -100f;
     private bool isDashing = false;
     public float dashSpeed = 20f;
     public float dashDuration = 0.2f;
@@ -33,7 +33,6 @@ public class PlayerMovement : MonoBehaviour
         Vector2 newPosition = playerRigidBody.position;
 
         if (Input.GetMouseButtonDown(1) && CanDash()) {
-            Debug.Log("dash");
             StartCoroutine(Dash(moveInput));
         }
 
@@ -59,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         playerRigidBody.position = closestPoint;
     }
 
-    bool CanDash() {
+    public bool CanDash() {
         return Time.time >= lastDashTime + dashCooldown;
     }
 

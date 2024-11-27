@@ -379,6 +379,7 @@
 "Assets/BulletPool.cs"
 "Assets/CreatePolygonPoints.cs"
 "Assets/DamageShake.cs"
+"Assets/DashTimerDisplay.cs"
 "Assets/PlayerMovement.cs"
 "Assets/SpawnLaunchers.cs"
 "Assets/TetherIndicator.cs"
