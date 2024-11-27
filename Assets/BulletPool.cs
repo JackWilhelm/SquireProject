@@ -34,8 +34,6 @@ public class BulletPool : MonoBehaviour
                 return bullet;
             }
         }
-
-        Debug.Log("No bullets left in pool!");
         return null;
     }
 

@@ -6,7 +6,7 @@ using UnityEngine;
 public class CreatePolygonPoints : MonoBehaviour
 {
     private Vector2[] newPoints;
-    private float rectangleDefaultSize = 10f;
+    private float rectangleDefaultSize = 15f;
     // Start is called before the first frame update
     void Start()
     {

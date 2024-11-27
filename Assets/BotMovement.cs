@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class BotMovement : MonoBehaviour
 {
+    private Queue<GameObject> targetQueue = new Queue<GameObject>();
     private GameObject target;
+
+    public Rigidbody2D bodyRigidBody;
+    public float moveSpeed = 3f;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,21 +27,34 @@ public class BotMovement : MonoBehaviour
 
     private void AlertBot(GameObject newTarget)
     {
-        if (target == null) {
-            target = newTarget;
-        }
+        targetQueue.Enqueue(newTarget);
     }
 
 
     // Update is called once per frame
     void Update()
     {
+        if (target == null && targetQueue.Count > 0) {
+            target = targetQueue.Peek();
+        }
         if (target != null) {
-            Debug.Log(target.transform.position.x + " " +  target.transform.position.y);
             if (!target.activeInHierarchy) {
-                target = null;
                 Debug.Log("target gone");
+                targetQueue.Dequeue();
+                if (targetQueue.Count > 0) {
+                    target = targetQueue.Peek();
+                } else {
+                    target = null;
+                    bodyRigidBody.velocity = Vector2.zero;
+                }
+            } else { 
+                moveTowardsTarget();
             }
         }
+    }
+
+    private void moveTowardsTarget() {
+        Vector2 moveInput = new Vector2(target.transform.position.x - bodyRigidBody.position.x, target.transform.position.y - bodyRigidBody.position.y).normalized;
+        bodyRigidBody.velocity = moveInput * moveSpeed;
     }
 }
