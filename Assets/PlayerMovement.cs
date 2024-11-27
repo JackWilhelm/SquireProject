@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float dashCooldown = 2;
     public float lastDashTime {get; private set;} = -100f;
     private bool isDashing = false;
-    public float dashSpeed = 20f;
+    public float maxDashDistance = 5f;
     public float dashDuration = 0.2f;
     public bool dashMethodMouse = false;
     // Start is called before the first frame update
@@ -36,8 +36,6 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(Dash(moveInput));
         }
 
-
-    
         Vector2 botCenter = maxDistanceFromBot.transform.position;
         Vector2 fromBotCenter = newPosition - botCenter;
         if (fromBotCenter.magnitude > maxDistanceFromBot.radius) {
@@ -65,16 +63,20 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator Dash(Vector2 moveDirection) {
         isDashing = true;
         lastDashTime = Time.time;
+        float dashDistance = maxDashDistance;
 
         if (dashMethodMouse) {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-            moveDirection = (mousePosition - (Vector2)transform.position).normalized;
+            Vector2 directionVector = mousePosition - (Vector2)transform.position;
+            moveDirection = directionVector.normalized;
+            float distanceToMouse = Vector2.Distance((Vector2)transform.position, mousePosition);
+            if (distanceToMouse < maxDashDistance) {
+                dashDistance = distanceToMouse;
+            }
         }
-        Vector2 dashVelocity = moveDirection * dashSpeed;
+        Vector2 dashVelocity = moveDirection * (dashDistance / dashDuration);
         playerRigidBody.velocity = dashVelocity;
         
-
         yield return new WaitForSeconds(dashDuration);
 
         isDashing = false;
