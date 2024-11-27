@@ -10,13 +10,24 @@ public class TetherIndicator : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
-    public float maxTetherDistance = 5f;
+    public CircleCollider2D tetherRangeCollider;
+
+    private float maxTetherDistance;
     public float minTetherDistance = 1f;
+
+    private bool isShaking = false;
+
+    public float tetherShakeThreshold = 0.95f;
 
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        if (tetherRangeCollider != null) {
+            maxTetherDistance = tetherRangeCollider.radius;
+        } else {
+            maxTetherDistance = 5f;
+        }
     }
 
     // Update is called once per frame
@@ -38,6 +49,8 @@ public class TetherIndicator : MonoBehaviour
         float distance = Vector2.Distance(object1.position, object2.position);
         transform.localScale = new Vector2(distance, 1/distance);
         Coloring(distance);
+        CheckShaking(distance);
+        
     }
 
     void Rotating() {
@@ -48,7 +61,30 @@ public class TetherIndicator : MonoBehaviour
 
     void Coloring(float distance) {
         distance = (distance - minTetherDistance) / (maxTetherDistance - minTetherDistance);
-        Debug.Log(distance);
         spriteRenderer.color = Color.Lerp(Color.green, Color.red, distance);
+    }
+
+    void CheckShaking(float distance) {
+        if ((distance - minTetherDistance) / (maxTetherDistance - minTetherDistance) > tetherShakeThreshold && !isShaking) {
+            StartCoroutine(Shake());
+        } else {
+            isShaking = false;
+            StopCoroutine(Shake());
+        }
+    }
+
+    private IEnumerator Shake() {
+        isShaking = true;
+        Vector2 originalPosition = transform.localPosition;
+        float shakeMagnitude = 0.1f;
+
+        while (isShaking) {
+            float offsetX = Random.Range(-1f, 1f) * shakeMagnitude;
+            float offsetY = Random.Range(-1f, 1f) * shakeMagnitude;
+            transform.localPosition = originalPosition + new Vector2(offsetX, offsetY);
+            yield return null;
+        }
+
+        transform.localPosition = originalPosition;
     }
 }

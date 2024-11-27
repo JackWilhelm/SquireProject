@@ -816,8 +816,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   object1: {fileID: 265084392}
   object2: {fileID: 1191812501}
-  maxTetherDistance: 5
+  tetherRangeCollider: {fileID: 1248789121}
   minTetherDistance: 1
+  tetherShakeThreshold: 0.95
 --- !u!212 &1352988256
 SpriteRenderer:
   m_ObjectHideFlags: 0
