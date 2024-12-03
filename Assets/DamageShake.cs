@@ -2,19 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TakingDamage : MonoBehaviour
+public class DamageShake : MonoBehaviour
 {
     public float shakeDuration = 0.5f;
     public float shakeMagnitude = 0.25f;
-    public CircleCollider2D botCollider;
+    public CircleCollider2D objectCollider;
 
     private Vector2 originalPosition;
 
     private SpriteRenderer spriteRenderer;
+    private Color originalColor;
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        originalColor = spriteRenderer.color;
     }
     
     private void OnTriggerEnter2D(Collider2D other) {
@@ -37,7 +39,7 @@ public class TakingDamage : MonoBehaviour
             yield return null;
         }
 
-        spriteRenderer.color = Color.blue;
+        spriteRenderer.color = originalColor;
 
         transform.localPosition = originalPosition;
     }
