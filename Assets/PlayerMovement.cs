@@ -27,33 +27,46 @@ public class PlayerMovement : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
 
         Vector2 moveInput = new Vector2(moveX, moveY).normalized;
+        Vector2 newPosition = NormalMovement(moveInput);
+
+        DashHandler(moveInput);
+
+        newPosition = ClampToBot(newPosition);
+        newPosition = ClampPlayerToBounds(newPosition);
+        playerRigidBody.position = newPosition;
+}
+
+    Vector2 NormalMovement(Vector2 moveInput) {
         if (!isDashing) {
             playerRigidBody.velocity = Vector2.Lerp(playerRigidBody.velocity, moveInput * moveSpeed, Time.deltaTime * footGrip);
         }
-        Vector2 newPosition = playerRigidBody.position;
+        return playerRigidBody.position;
+    }
 
-        if (Input.GetMouseButtonDown(1) && CanDash()) {
-            StartCoroutine(Dash(moveInput));
-        }
-
+    Vector2 ClampToBot(Vector2 newPosition) {
         Vector2 botCenter = maxDistanceFromBot.transform.position;
         Vector2 fromBotCenter = newPosition - botCenter;
         if (fromBotCenter.magnitude > maxDistanceFromBot.radius) {
+            Debug.Log(newPosition);
             fromBotCenter.Normalize();
             newPosition = botCenter + fromBotCenter * maxDistanceFromBot.radius;
         }
+        return newPosition;
+    }
 
-        playerRigidBody.position = newPosition;
-
+    Vector2 ClampPlayerToBounds(Vector2 newPosition) {
         if (!groundCollider.OverlapPoint(newPosition)) {
-            ClampPlayerToBounds();
+            Vector2 playerPosition = playerRigidBody.position;
+            Vector2 closestPoint = groundCollider.ClosestPoint(playerPosition);
+            newPosition = closestPoint;
         }
-}
+        return newPosition;
+    }
 
-    void ClampPlayerToBounds() {
-        Vector2 playerPosition = playerRigidBody.position;
-        Vector2 closestPoint = groundCollider.ClosestPoint(playerPosition);
-        playerRigidBody.position = closestPoint;
+    void DashHandler(Vector2 moveInput) {
+        if (Input.GetMouseButtonDown(1) && CanDash()) {
+            StartCoroutine(Dash(moveInput));
+        }
     }
 
     public bool CanDash() {

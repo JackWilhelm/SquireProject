@@ -116,5 +116,5 @@ MonoBehaviour:
   bulletPool: {fileID: 0}
   firePoint: {fileID: 6618568916358505991}
   fireRate: 10
-  fireRateVarianceRange: 6
+  fireRateVarianceRange: 2
   fireRateVarianceBackendLimiter: 0.5
