@@ -7,15 +7,11 @@ public class BulletLaunch : MonoBehaviour
     public BulletPool bulletPool;
     public Transform firePoint;
     public float fireRate = 10f;
-    public float fireRateVarianceRange = 2f;
-
-    public float fireRateVarianceBackendLimiter = 0.5f;
-
     private float _fireCooldown;
 
     void Start()
     {
-        _fireCooldown = fireRate;
+        _fireCooldown = fireRate - Random.Range(0, fireRate/2);
         GameObject bulletManager = GameObject.Find("BulletManager");
 
         if (bulletManager != null)
@@ -32,11 +28,11 @@ public class BulletLaunch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _fireCooldown -= Time.deltaTime * Random.Range(-fireRateVarianceRange * fireRateVarianceBackendLimiter, fireRateVarianceRange);
+        _fireCooldown -= Time.deltaTime;
 
         if (_fireCooldown <= 0f) {
             Shoot();
-            _fireCooldown = fireRate;
+            _fireCooldown = fireRate - Random.Range(0, fireRate/2);
         }
     }
 
