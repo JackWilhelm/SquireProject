@@ -6,10 +6,7 @@ public class DamageShake : MonoBehaviour
 {
     public float shakeDuration = 0.5f;
     public float shakeMagnitude = 0.25f;
-    public CircleCollider2D objectCollider;
-
     private Vector2 originalPosition;
-
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
 
@@ -22,6 +19,7 @@ public class DamageShake : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Bullet")) {
             originalPosition = transform.localPosition;
+            Debug.Log(originalPosition);
             StartCoroutine(Shake());
         }
     }

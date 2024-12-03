@@ -43,7 +43,6 @@ public class PlayerMovement : MonoBehaviour
         Vector2 botCenter = maxDistanceFromBot.transform.position;
         Vector2 fromBotCenter = newPosition - botCenter;
         if (fromBotCenter.magnitude > maxDistanceFromBot.radius) {
-            Debug.Log(newPosition);
             fromBotCenter.Normalize();
             newPosition = botCenter + fromBotCenter * maxDistanceFromBot.radius;
         }
