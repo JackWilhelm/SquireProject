@@ -27,14 +27,10 @@ public class PlayerMovement : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
 
         Vector2 moveInput = new Vector2(moveX, moveY).normalized;
-        Vector2 newPosition = NormalMovement(moveInput);
-
         DashHandler(moveInput);
-
-        newPosition = ClampToBot(newPosition);
-        newPosition = ClampPlayerToBounds(newPosition);
-        playerRigidBody.position = newPosition;
-}
+        Vector2 newPosition = NormalMovement(moveInput);
+        playerRigidBody.position = ClampPlayerToBounds(ClampToBot(newPosition));
+    }
 
     Vector2 NormalMovement(Vector2 moveInput) {
         if (!isDashing) {
