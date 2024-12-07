@@ -71,6 +71,7 @@
     <Compile Include="Assets\TetherIndicator.cs" />
     <Compile Include="Assets\AimAtBot.cs" />
     <Compile Include="Assets\BulletBehavior.cs" />
+    <Compile Include="Assets\LookAtMouse.cs" />
     <Compile Include="Assets\CreatePolygonPoints.cs" />
     <Compile Include="Assets\PlayerMovement.cs" />
     <Compile Include="Assets\BotMovement.cs" />

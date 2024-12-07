@@ -5,7 +5,6 @@ using UnityEngine;
 public class AimAtBot : MonoBehaviour
 {
     public Transform target;
-    public float rotationSpeed = 5f;
     public float rotationOffset = -90f;
 
     void Start() {

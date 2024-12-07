@@ -285,7 +285,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakeDuration: 0.5
   shakeMagnitude: 0.25
-  objectCollider: {fileID: 0}
 --- !u!1 &458010753
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,7 +784,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakeDuration: 0.5
   shakeMagnitude: 0.25
-  objectCollider: {fileID: 0}
 --- !u!1 &1194333352
 GameObject:
   m_ObjectHideFlags: 0

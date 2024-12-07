@@ -380,6 +380,7 @@
 "Assets/CreatePolygonPoints.cs"
 "Assets/DamageShake.cs"
 "Assets/DashTimerDisplay.cs"
+"Assets/LookAtMouse.cs"
 "Assets/PlayerMovement.cs"
 "Assets/SpawnLaunchers.cs"
 "Assets/TetherIndicator.cs"
