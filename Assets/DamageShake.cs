@@ -19,7 +19,6 @@ public class DamageShake : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Bullet")) {
             originalPosition = transform.localPosition;
-            Debug.Log(originalPosition);
             StartCoroutine(Shake());
         }
     }

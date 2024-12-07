@@ -1263,6 +1263,7 @@ GameObject:
   - component: {fileID: 1719446249}
   - component: {fileID: 1719446250}
   - component: {fileID: 1719446251}
+  - component: {fileID: 1719446252}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Shield
@@ -1382,6 +1383,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1719446252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719446248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d081987c0917a0642a689b17b447c152, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  signalDuration: 0.5
 --- !u!1 &2048976997
 GameObject:
   m_ObjectHideFlags: 0
