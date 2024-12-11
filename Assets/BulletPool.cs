@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BulletPool : MonoBehaviour
 {
@@ -11,9 +12,12 @@ public class BulletPool : MonoBehaviour
     private GameObject[] bulletPool;
 
     public static event Action<GameObject> AlertBot;
+
+    public Text runDisplayTest;
     // Start is called before the first frame update
     void Start()
     {
+        runDisplayTest.text = "Im here";
         bulletPool = new GameObject[poolSize];
         for (int i = 0; i< poolSize; i++) {
             GameObject bullet = Instantiate(bulletPrefab);
