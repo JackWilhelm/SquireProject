@@ -17,6 +17,8 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
+      - name: Clean working directory
+        run: git reset --hard && git clean -fdx
       - uses: actions/cache@v3
         with:
           path: Library
@@ -31,6 +33,13 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: ${{ matrix.targetPlatform }}
+      - name: Commit project changes
+        run: |
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add .
+          git commit -m "Commit changes from Unity build" || echo "No changes to commit"
+          git push || echo "No changes to push"
       - uses: actions/upload-artifact@v3
         with:
           name: Build-${{ matrix.targetPlatform }}
