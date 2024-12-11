@@ -14,6 +14,7 @@ public class BulletPool : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        bulletPrefab = Resources.Load<GameObject>("Bullet");
         bulletPool = new GameObject[poolSize];
         for (int i = 0; i< poolSize; i++) {
             GameObject bullet = Instantiate(bulletPrefab);

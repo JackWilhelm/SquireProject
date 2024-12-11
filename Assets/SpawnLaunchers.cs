@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class SpawnLaunchers : MonoBehaviour
 {
-    public GameObject prefabToSpawn;  
+    public GameObject launcherPrefab;  
     public Transform centerPoint;    
     public int numberOfObjects = 10;
     public float radius = 5f;       
 
     void Start()
     {
-        SpawnCircle();
+        launcherPrefab = Resources.Load<GameObject>("BulletLauncher");
+        SpawnCircleOfLaunchers();
     }
 
-    void SpawnCircle()
+    void SpawnCircleOfLaunchers()
     {
         for (int i = 0; i < numberOfObjects; i++)
         {
@@ -25,7 +26,7 @@ public class SpawnLaunchers : MonoBehaviour
 
             Vector3 spawnPosition = new Vector3(x, y, centerPoint.position.z);
 
-            Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
+            Instantiate(launcherPrefab, spawnPosition, Quaternion.identity);
         }
     }
 }
