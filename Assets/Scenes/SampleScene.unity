@@ -649,7 +649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRigidBody: {fileID: 1191812502}
-  moveSpeed: 11
+  moveSpeed: 12
   groundCollider: {fileID: 926090558}
   maxDistanceFromBot: {fileID: 1248789121}
   footGrip: 100
