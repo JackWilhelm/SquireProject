@@ -31,7 +31,7 @@ jobs:
         with:
           targetPlatform: ${{ matrix.targetPlatform }}
       - name: Debug Assets Folder
-          run: ls -R Assets/Resources
+        run: ls -R Assets/Resources
       - uses: actions/upload-artifact@v3
         with:
           name: Build-${{ matrix.targetPlatform }}
