@@ -32,7 +32,7 @@ jobs:
           targetPlatform: ${{ matrix.targetPlatform }}
       - name: Debug Assets Folder
         run: ls -R Assets/Resources
-        - name: Reimport All Assets
+      - name: Reimport All Assets
         run: find Assets -type f | xargs -I {} touch {}
       - uses: actions/upload-artifact@v3
         with:
