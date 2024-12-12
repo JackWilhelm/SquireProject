@@ -25,6 +25,7 @@ public class SpawnLaunchers : MonoBehaviour
 
     void SpawnCircleOfLaunchers()
     {
+        string currentText = test.text;
         for (int i = 0; i < numberOfObjects; i++)
         {
             float angle = i * Mathf.PI * 2f / numberOfObjects;
@@ -35,6 +36,8 @@ public class SpawnLaunchers : MonoBehaviour
             Vector3 spawnPosition = new Vector3(x, y, centerPoint.position.z);
 
             Instantiate(launcherPrefab, spawnPosition, Quaternion.identity);
+
+            test.text = currentText + i.ToString();
         }
     }
 }
