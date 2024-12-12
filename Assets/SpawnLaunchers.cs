@@ -38,7 +38,11 @@ public class SpawnLaunchers : MonoBehaviour
 
             Vector3 spawnPosition = new Vector3(x, y, centerPoint.position.z);
 
-            Instantiate(launcherPrefab, spawnPosition, Quaternion.identity);
+            GameObject newLauncher = Instantiate(launcherPrefab, spawnPosition, Quaternion.identity);
+
+            if (newLauncher != null) {
+                Debug.Log("Successfully instantiated: " + newLauncher.name);
+            }
 
             test.text = currentText + i.ToString();
         }
