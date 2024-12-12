@@ -25,8 +25,6 @@ jobs:
        # uses: jlumbroso/free-disk-space@v1.3.1
       - name: Debug Assets Folder
         run: ls -R Assets/Resources
-      - name: Reimport All Assets
-        run: find Assets -type f | xargs -I {} touch {}
       - uses: game-ci/unity-builder@v4
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
