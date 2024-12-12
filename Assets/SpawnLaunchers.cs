@@ -12,6 +12,11 @@ public class SpawnLaunchers : MonoBehaviour
     void Start()
     {
         launcherPrefab = Resources.Load<GameObject>("BulletLauncher");
+        if (launcherPrefab == null) {
+            Debug.LogError("BulletLauncher prefab could not be loaded from Resources!");
+        } else {
+            Debug.Log("Successfully loaded BulletLauncher prefab!");
+        }
         SpawnCircleOfLaunchers();
     }
 

@@ -25,6 +25,8 @@ jobs:
        # uses: jlumbroso/free-disk-space@v1.3.1
       - name: Debug Assets Folder
         run: ls -R Assets/Resources
+      - name: Ensure Resources Folder Is Detected
+        run: find Assets/Resources -type f -exec touch {} +
       - uses: game-ci/unity-builder@v4
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
