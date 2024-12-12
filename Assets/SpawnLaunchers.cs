@@ -18,6 +18,9 @@ public class SpawnLaunchers : MonoBehaviour
             Debug.LogError("BulletLauncher prefab could not be loaded from Resources!");
         } else {
             test.text = "PREFAB EXISTS";
+            if (launcherPrefab.GetComponent<AimAtBot>() != null) {
+                test.text = "with aim";
+            }
             Debug.Log("Successfully loaded BulletLauncher prefab!");
         }
         SpawnCircleOfLaunchers();
