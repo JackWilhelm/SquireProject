@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  rotationSpeed: 5
   rotationOffset: -90
 --- !u!114 &2855502225367408456
 MonoBehaviour:
@@ -116,5 +115,3 @@ MonoBehaviour:
   bulletPool: {fileID: 0}
   firePoint: {fileID: 6618568916358505991}
   fireRate: 10
-  fireRateVarianceRange: 2
-  fireRateVarianceBackendLimiter: 0.5
