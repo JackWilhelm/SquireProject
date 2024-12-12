@@ -34,8 +34,6 @@ jobs:
           targetPlatform: ${{ matrix.targetPlatform }}
       - name: Debug Build Directory
         run: ls -R build/${{ matrix.targetPlatform }}
-      - name: List Resources in Build
-        run: ls -R build/${{ matrix.targetPlatform }}/Resources/
       - uses: actions/upload-artifact@v3
         with:
           name: Build-${{ matrix.targetPlatform }}
