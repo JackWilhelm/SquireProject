@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnLaunchers : MonoBehaviour
 {
     public GameObject launcherPrefab;  
     public Transform centerPoint;    
     public int numberOfObjects = 10;
-    public float radius = 5f;       
+    public float radius = 5f;     
+    public Text test;  
 
     void Start()
     {
@@ -15,6 +17,7 @@ public class SpawnLaunchers : MonoBehaviour
         if (launcherPrefab == null) {
             Debug.LogError("BulletLauncher prefab could not be loaded from Resources!");
         } else {
+            test.text = "PREFAB EXISTS";
             Debug.Log("Successfully loaded BulletLauncher prefab!");
         }
         SpawnCircleOfLaunchers();
