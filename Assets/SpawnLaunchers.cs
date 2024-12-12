@@ -41,7 +41,7 @@ public class SpawnLaunchers : MonoBehaviour
             GameObject newLauncher = Instantiate(launcherPrefab, spawnPosition, Quaternion.identity);
 
             if (newLauncher != null) {
-                Debug.Log("Successfully instantiated: " + newLauncher.name);
+                Debug.Log("Successfully instantiated: " + newLauncher.name + newLauncher.transform.position);
             }
 
             test.text = currentText + i.ToString();
