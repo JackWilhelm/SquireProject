@@ -39,6 +39,7 @@ public class BotMovement : MonoBehaviour
         }
         if (target != null) {
             if (!target.activeInHierarchy) {
+                Debug.Log("target gone");
                 targetQueue.Dequeue();
                 if (targetQueue.Count > 0) {
                     target = targetQueue.Peek();
