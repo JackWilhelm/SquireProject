@@ -17,11 +17,6 @@ public class BulletLaunch : MonoBehaviour
         if (bulletManager != null)
         {
             bulletPool = bulletManager.GetComponent<BulletPool>();
-            Debug.Log("BulletPool successfully assigned to BulletLauncher!");
-        }
-        else
-        {
-            Debug.LogError("BulletManager not found in the Scene! BulletLauncher cannot function.");
         }
     }
 

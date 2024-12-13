@@ -15,16 +15,9 @@ public class BulletPool : MonoBehaviour
     void Start()
     {
         bulletPrefab = Resources.Load<GameObject>("Bullet");
-        if (bulletPrefab == null) {
-            Debug.Log("bullet nonexistent");
-            return;
-        }
         bulletPool = new GameObject[poolSize];
         for (int i = 0; i< poolSize; i++) {
             GameObject bullet = Instantiate(bulletPrefab);
-            if (bullet != null) {
-                Debug.Log("Successfully instantiated: " + bullet.name);
-            }
             bullet.SetActive(false);
             BulletBehavior bulletBehavior = bullet.GetComponent<BulletBehavior>();
             if (bulletBehavior != null) {
