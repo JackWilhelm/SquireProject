@@ -320,7 +320,7 @@ MonoBehaviour:
   centerPoint: {fileID: 2048976999}
   numberOfObjects: 10
   radius: 10
-  test: {fileID: 938061149}
+  testDisplay: {fileID: 938061149}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
