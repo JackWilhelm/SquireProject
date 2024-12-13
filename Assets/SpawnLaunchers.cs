@@ -9,7 +9,6 @@ public class SpawnLaunchers : MonoBehaviour
     public Transform centerPoint;    
     public int numberOfObjects = 10;
     public float radius = 5f;     
-    public Text testDisplay;  
 
     void Start()
     {
@@ -17,9 +16,8 @@ public class SpawnLaunchers : MonoBehaviour
         if (launcherPrefab == null) {
             Debug.LogError("BulletLauncher prefab could not be loaded from Resources!");
         } else {
-            testDisplay.text = "PREFAB EXISTS";
             if (launcherPrefab.GetComponent<AimAtBot>() != null) {
-                testDisplay.text = "with aim";
+                Debug.Log("with aim");
             }
             Debug.Log("Successfully loaded BulletLauncher prefab!");
         }
@@ -28,7 +26,6 @@ public class SpawnLaunchers : MonoBehaviour
 
     void SpawnCircleOfLaunchers()
     {
-        string currentText = testDisplay.text;
         for (int i = 0; i < numberOfObjects; i++)
         {
             float angle = i * Mathf.PI * 2f / numberOfObjects;
@@ -43,8 +40,6 @@ public class SpawnLaunchers : MonoBehaviour
             if (newLauncher != null) {
                 Debug.Log("Successfully instantiated: " + newLauncher.name + newLauncher.transform.position);
             }
-
-            testDisplay.text = currentText + i.ToString();
         }
     }
 }
