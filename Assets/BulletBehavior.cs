@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BulletBehavior : MonoBehaviour
@@ -9,6 +10,7 @@ public class BulletBehavior : MonoBehaviour
 
     private float _lifeTimer;
     private BulletPool bulletPool;
+    private string[] TagsOfBulletReseters = {"Bot", "Player", "Shield"};
     // Start is called before the first frame update
     void Start()
     {
@@ -32,8 +34,11 @@ public class BulletBehavior : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag("Bot") || other.CompareTag("Player") || other.CompareTag("Shield")) {
-            resetBullet();
+        for (int i = 0; i < TagsOfBulletReseters.Length; i++) {
+            if (other.CompareTag(TagsOfBulletReseters[i])) {
+                resetBullet();
+                break;
+            }
         }
     }
 
