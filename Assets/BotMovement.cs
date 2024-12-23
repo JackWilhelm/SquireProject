@@ -4,52 +4,40 @@ using UnityEngine;
 
 public class BotMovement : MonoBehaviour
 {
-    private Queue<GameObject> targetQueue = new Queue<GameObject>();
     private GameObject target;
 
     public Rigidbody2D bodyRigidBody;
     public float moveSpeed = 3f;
+
+    void OnEnable()
+    {
+        BotTargeting.GiveBotNewTarget += GiveBotNewTarget;
+    }
+
+    void OnDisable()
+    {
+        BotTargeting.GiveBotNewTarget -= GiveBotNewTarget;
+    }
+
+    private void GiveBotNewTarget(GameObject newTarget)
+    {
+        target = newTarget;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
 
     }
 
-    void OnEnable() // Use OnEnable to be robust against subscriptions
-    {
-        BulletPool.AlertBot += AlertBot;
-    }
-
-    void OnDisable() // Always unsubscribe when the object is destroyed or disabled
-    {
-        BulletPool.AlertBot -= AlertBot;
-    }
-
-    private void AlertBot(GameObject newTarget)
-    {
-        targetQueue.Enqueue(newTarget);
-    }
-
 
     // Update is called once per frame
     void Update()
     {
-        if (target == null && targetQueue.Count > 0) {
-            target = targetQueue.Peek();
-        }
         if (target != null) {
-            if (!target.activeInHierarchy) {
-                Debug.Log("target gone");
-                targetQueue.Dequeue();
-                if (targetQueue.Count > 0) {
-                    target = targetQueue.Peek();
-                } else {
-                    target = null;
-                    bodyRigidBody.velocity = Vector2.zero;
-                }
-            } else { 
-                moveTowardsTarget();
-            }
+            moveTowardsTarget();
+        } else {
+            bodyRigidBody.velocity = Vector2.zero;
         }
     }
 

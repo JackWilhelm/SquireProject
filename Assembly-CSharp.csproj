@@ -74,6 +74,7 @@
     <Compile Include="Assets\LookAtMouse.cs" />
     <Compile Include="Assets\CreatePolygonPoints.cs" />
     <Compile Include="Assets\PlayerMovement.cs" />
+    <Compile Include="Assets\BotTargeting.cs" />
     <Compile Include="Assets\BotMovement.cs" />
     <Compile Include="Assets\DamageShake.cs" />
     <Compile Include="Assets\SuccessfulBlock.cs" />

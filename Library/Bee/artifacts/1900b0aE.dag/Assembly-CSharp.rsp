@@ -374,6 +374,7 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.51f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/AimAtBot.cs"
 "Assets/BotMovement.cs"
+"Assets/BotTargeting.cs"
 "Assets/BulletBehavior.cs"
 "Assets/BulletLauncher.cs"
 "Assets/BulletPool.cs"
