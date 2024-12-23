@@ -8,20 +8,15 @@ public class BulletLaunch : MonoBehaviour
     public Transform firePoint;
     public float fireRate = 10f;
     private float _fireCooldown;
+    private float upperLimitOfCooldownReduction = 0.5f;
 
     void Start()
     {
-        _fireCooldown = fireRate - Random.Range(0, fireRate/2);
+        _fireCooldown = fireRate - Random.Range(0, fireRate * upperLimitOfCooldownReduction);
         GameObject bulletManager = GameObject.Find("BulletManager");
 
-        if (bulletManager != null)
-        {
+        if (bulletManager != null) {
             bulletPool = bulletManager.GetComponent<BulletPool>();
-            Debug.Log("BulletPool successfully assigned to BulletLauncher!");
-        }
-        else
-        {
-            Debug.LogError("BulletManager not found in the Scene! BulletLauncher cannot function.");
         }
     }
 
@@ -32,7 +27,6 @@ public class BulletLaunch : MonoBehaviour
 
         if (_fireCooldown <= 0f) {
             Shoot();
-            _fireCooldown = fireRate - Random.Range(0, fireRate/2);
         }
     }
 
@@ -42,5 +36,6 @@ public class BulletLaunch : MonoBehaviour
             bullet.transform.position = firePoint.position;
             bullet.transform.rotation = firePoint.rotation;
         }
+        _fireCooldown = fireRate - Random.Range(0, fireRate * upperLimitOfCooldownReduction);
     }
 }
