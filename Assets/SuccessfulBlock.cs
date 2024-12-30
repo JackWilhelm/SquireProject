@@ -31,7 +31,7 @@ public class SuccessfulBlock : MonoBehaviour
     }
 
     private IEnumerator BlockSignal() {
-        spriteRenderer.color = Color.yellow;
+        spriteRenderer.color = Color.blue;
         yield return new WaitForSeconds(signalDuration);
         spriteRenderer.color = originalColor;
     }
