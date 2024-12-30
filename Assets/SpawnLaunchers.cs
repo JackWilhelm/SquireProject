@@ -15,11 +15,6 @@ public class SpawnLaunchers : MonoBehaviour
         launcherPrefab = Resources.Load<GameObject>("BulletLauncher");
         if (launcherPrefab == null) {
             Debug.LogError("BulletLauncher prefab could not be loaded from Resources!");
-        } else {
-            if (launcherPrefab.GetComponent<AimAtBot>() != null) {
-                Debug.Log("with aim");
-            }
-            Debug.Log("Successfully loaded BulletLauncher prefab!");
         }
         SpawnCircleOfLaunchers();
     }
@@ -36,10 +31,6 @@ public class SpawnLaunchers : MonoBehaviour
             Vector3 spawnPosition = new Vector3(x, y, centerPoint.position.z);
 
             GameObject newLauncher = Instantiate(launcherPrefab, spawnPosition, Quaternion.identity);
-
-            if (newLauncher != null) {
-                Debug.Log("Successfully instantiated: " + newLauncher.name + newLauncher.transform.position);
-            }
         }
     }
 }
