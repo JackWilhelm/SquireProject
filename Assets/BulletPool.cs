@@ -14,17 +14,28 @@ public class BulletPool : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        bulletPrefab = LoadBulletPrefab();
+        if (bulletPrefab == null) {
+            return;
+        }
+
+        bulletPool = new GameObject[poolSize];
+
+        FillBulletPool(bulletPool, poolSize);
+    }
+
+    private GameObject LoadBulletPrefab() {
         bulletPrefab = Resources.Load<GameObject>("Bullet");
         if (bulletPrefab == null) {
             Debug.Log("bullet nonexistent");
-            return;
+            return null;
         }
-        bulletPool = new GameObject[poolSize];
-        for (int i = 0; i< poolSize; i++) {
+        return bulletPrefab;
+    }
+
+    private void FillBulletPool(GameObject[] bulletPool, int poolSize) {
+        for (int i = 0; i < poolSize; i++) {
             GameObject bullet = Instantiate(bulletPrefab);
-            if (bullet != null) {
-                Debug.Log("Successfully instantiated: " + bullet.name);
-            }
             bullet.SetActive(false);
             BulletBehavior bulletBehavior = bullet.GetComponent<BulletBehavior>();
             if (bulletBehavior != null) {
