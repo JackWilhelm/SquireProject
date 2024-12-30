@@ -22,11 +22,10 @@ public class SuccessfulBlock : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (blockSignalRoutine != null)
-        {
-            StopCoroutine(blockSignalRoutine);
-        }
         if (other.CompareTag("Bullet")) {
+            if (blockSignalRoutine != null) {
+                StopCoroutine(blockSignalRoutine);
+            }
             blockSignalRoutine = StartCoroutine(BlockSignal());
         } 
     }
