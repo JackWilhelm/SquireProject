@@ -657,6 +657,7 @@ MonoBehaviour:
   maxDashDistance: 5
   dashDuration: 0.15
   dashMethodMouse: 1
+  dashDistanceOffset: 1
 --- !u!212 &1191812500
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -664,7 +665,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1191812496}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1

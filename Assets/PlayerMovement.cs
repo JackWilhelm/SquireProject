@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public float maxDashDistance = 5f;
     public float dashDuration = 0.2f;
     public bool dashMethodMouse = false;
+    public float dashDistanceOffset = 1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -79,7 +80,10 @@ public class PlayerMovement : MonoBehaviour
             moveDirection = directionVector.normalized;
             float distanceToMouse = Vector2.Distance((Vector2)transform.position, mousePosition);
             if (distanceToMouse < maxDashDistance) {
-                dashDistance = distanceToMouse;
+                dashDistance = distanceToMouse - dashDistanceOffset;
+            }
+            if (dashDistance < 0) {
+                dashDistance = 0;
             }
         }
         Vector2 dashVelocity = moveDirection * (dashDistance / dashDuration);
