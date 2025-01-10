@@ -8,6 +8,9 @@ TagManager:
   - Bot
   - Bullet
   - Shield
+  - Tile
+  - PlayerDetectionRange
+  - BotDetectionRange
   layers:
   - Default
   - TransparentFX
@@ -42,6 +45,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Tiles
+    uniqueID: 3186388457
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

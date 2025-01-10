@@ -65,7 +65,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\SpawnLaunchers.cs" />
+    <Compile Include="Assets\GridManager.cs" />
     <Compile Include="Assets\BulletLauncher.cs" />
+    <Compile Include="Assets\Tile.cs" />
     <Compile Include="Assets\BulletPool.cs" />
     <Compile Include="Assets\DashTimerDisplay.cs" />
     <Compile Include="Assets\TetherIndicator.cs" />
