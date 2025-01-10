@@ -1125,7 +1125,7 @@ MonoBehaviour:
   _width: 44
   _height: 27
   _origin: {fileID: 1483157414}
-  _tilePrefab: {fileID: 1968771014351799945, guid: 0b34076d1d0281b4889078365a85583b, type: 3}
+  _tilePrefab: {fileID: 0}
 --- !u!4 &1483157414
 Transform:
   m_ObjectHideFlags: 0
