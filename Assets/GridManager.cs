@@ -8,11 +8,12 @@ public class GridManager : MonoBehaviour
     [SerializeField] private int _width, _height;
     [SerializeField] private Transform _origin;
 
-    [SerializeField] private Tile _tilePrefab;
+    [SerializeField] private GameObject _tilePrefab;
     
     // Start is called before the first frame update
     void Start()
     {
+      _tilePrefab = Resources.Load<GameObject>("Tile");
       MakeGrid();  
     }
 
@@ -23,9 +24,10 @@ public class GridManager : MonoBehaviour
     }
 
     void MakeGrid() {
+        Tile tileScript = _tilePrefab.GetComponent<Tile>();
         for (float x = _origin.transform.position.x - _width/2; x < 0.5 + (_width + _origin.transform.position.x)/2; x++) {
             for (float y = _origin.transform.position.y - _height/2; y < (_height + _origin.transform.position.y)/2; y++) {
-                var spawnedTile = Instantiate(_tilePrefab, new Vector2(x,y), Quaternion.identity);
+                var spawnedTile = Instantiate(tileScript, new Vector2(x,y), Quaternion.identity);
                 spawnedTile.name = $"Tile {x} {y}";
 
                 bool isOffset = (x % 2 == 0 && y % 2 != 0) || (x % 2 != 0 && y % 2 == 0);
