@@ -232,12 +232,12 @@ SpriteRenderer:
   m_SortingLayerID: 1804586253
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: c3d41a99488c9d247b9df4cefe095657, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 439681f118cc6994da46ffb43e1176fb, type: 3}
   m_Color: {r: 0.0141509175, g: 0.16643734, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -774,7 +774,7 @@ SpriteRenderer:
   m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1191812501
@@ -1082,7 +1082,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: c3d41a99488c9d247b9df4cefe095657, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 439681f118cc6994da46ffb43e1176fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1230,12 +1230,12 @@ SpriteRenderer:
   m_SortingLayerID: -950137309
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: c3d41a99488c9d247b9df4cefe095657, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 439681f118cc6994da46ffb43e1176fb, type: 3}
   m_Color: {r: 0.2908202, g: 0.7254902, b: 0.1960784, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1378,7 +1378,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 16.800003}
+  m_AnchoredPosition: {x: 0, y: 16.799988}
   m_SizeDelta: {x: 156, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1693645260
@@ -1511,7 +1511,7 @@ SpriteRenderer:
   m_SortingLayerID: -950137309
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: c3d41a99488c9d247b9df4cefe095657, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 439681f118cc6994da46ffb43e1176fb, type: 3}
   m_Color: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
   m_FlipX: 0
   m_FlipY: 0
